@@ -329,6 +329,7 @@ button {
   font-size: clamp(2.45rem, 4.6vw, 4.5rem);
   max-width: 14ch;
   line-height: 0.94;
+  letter-spacing: 0.06em;
   text-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
 }
 
