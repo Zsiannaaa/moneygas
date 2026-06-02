@@ -547,13 +547,98 @@ button {
   margin-bottom: 2.5rem;
 }
 
-.builds-grid {
+.player-cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
   gap: 1.5rem;
+  max-width: 900px;
 }
 
-.build-card {
+.player-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+  cursor: pointer;
+}
+
+.player-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 16px 40px rgba(168, 85, 247, 0.25);
+}
+
+.player-card-skin {
+  width: 140px;
+  background: rgba(255, 255, 255, 0.03);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.player-card-skin img {
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.5));
+}
+
+.player-card-preview {
+  position: relative;
+  overflow: hidden;
+}
+
+.player-card-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.player-card:hover .player-card-preview img {
+  transform: scale(1.08);
+}
+
+.player-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.7), rgba(76, 29, 149, 0.8));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.player-card:hover .player-card-overlay {
+  opacity: 1;
+}
+
+.player-card-overlay span {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+
+.section-showcase .section-heading {
+  margin-bottom: 2.5rem;
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.showcase-card {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-lg);
   background: var(--panel);
@@ -563,70 +648,48 @@ button {
   transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
 
-.build-card:hover {
+.showcase-card:hover {
   transform: translateY(-6px);
   border-color: rgba(168, 85, 247, 0.4);
   box-shadow: 0 16px 40px rgba(168, 85, 247, 0.2);
 }
 
-.build-image {
+.showcase-image {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.build-image img {
+.showcase-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 400ms ease;
 }
 
-.build-card:hover .build-image img {
+.showcase-card:hover .showcase-image img {
   transform: scale(1.05);
 }
 
-.build-info {
-  padding: 1.5rem;
+.showcase-info {
+  padding: 1.75rem;
 }
 
-.build-info h3 {
+.showcase-info h3 {
   margin: 0;
   font-family: "Bebas Neue", Impact, sans-serif;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   letter-spacing: 0.03em;
   line-height: 0.96;
   color: #fff;
 }
 
-.build-info p {
-  margin: 0.65rem 0 1rem;
+.showcase-info p {
+  margin: 0.75rem 0 0;
   color: var(--muted);
-  line-height: 1.6;
-  font-size: 0.88rem;
-}
-
-.build-author {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.build-author-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #d8b4fe;
-}
-
-.build-author-name {
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: #e2d7f2;
+  line-height: 1.7;
+  font-size: 0.92rem;
 }
 
 .section-cta {
@@ -955,8 +1018,8 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .builds-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .showcase-grid {
+    grid-template-columns: 1fr;
   }
 
   .skin-grid {
@@ -1134,6 +1197,34 @@ button {
 
 @media (max-width: 560px) {
   .builds-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .player-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .player-card {
+    grid-template-columns: 1fr;
+  }
+
+  .player-card-skin {
+    width: 100%;
+    padding: 1.5rem;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .player-card-skin img {
+    max-width: 120px;
+    margin: 0 auto;
+  }
+
+  .player-card-preview {
+    min-height: 160px;
+  }
+
+  .showcase-grid {
     grid-template-columns: 1fr;
   }
 
