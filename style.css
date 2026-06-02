@@ -555,8 +555,6 @@ button {
 }
 
 .player-card {
-  display: grid;
-  grid-template-columns: auto 1fr;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-lg);
   background: var(--panel);
@@ -564,7 +562,6 @@ button {
   overflow: hidden;
   box-shadow: var(--shadow);
   transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
-  cursor: pointer;
 }
 
 .player-card:hover {
@@ -573,14 +570,40 @@ button {
   box-shadow: 0 16px 40px rgba(168, 85, 247, 0.25);
 }
 
+.player-card-header {
+  padding: 0.9rem 1.25rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.player-name {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+.player-card-body {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  cursor: pointer;
+}
+
+.player-card-body:hover .player-card-preview img {
+  transform: scale(1.08);
+}
+
+.player-card-body:hover .player-card-overlay {
+  opacity: 1;
+}
+
 .player-card-skin {
   width: 140px;
-  background: rgba(255, 255, 255, 0.03);
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 1.25rem 1rem;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(76, 29, 149, 0.25));
 }
 
 .player-card-skin img {
@@ -593,6 +616,7 @@ button {
 .player-card-preview {
   position: relative;
   overflow: hidden;
+  min-height: 180px;
 }
 
 .player-card-preview img {
@@ -600,10 +624,6 @@ button {
   height: 100%;
   object-fit: cover;
   transition: transform 400ms ease;
-}
-
-.player-card:hover .player-card-preview img {
-  transform: scale(1.08);
 }
 
 .player-card-overlay {
@@ -615,10 +635,6 @@ button {
   justify-content: center;
   opacity: 0;
   transition: opacity 220ms ease;
-}
-
-.player-card:hover .player-card-overlay {
-  opacity: 1;
 }
 
 .player-card-overlay span {
@@ -1204,14 +1220,13 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .player-card {
+  .player-card-body {
     grid-template-columns: 1fr;
   }
 
   .player-card-skin {
     width: 100%;
     padding: 1.5rem;
-    border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
