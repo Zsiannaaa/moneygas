@@ -525,6 +525,24 @@ button {
   margin-top: 1.5rem;
 }
 
+.hero-eyebrow-center {
+  justify-content: center;
+}
+
+.hero-actions-center {
+  justify-content: center;
+}
+
+.button-discord {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.button-discord svg {
+  flex-shrink: 0;
+}
+
 .section-builds .section-heading {
   margin-bottom: 2.5rem;
 }
