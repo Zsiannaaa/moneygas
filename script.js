@@ -99,6 +99,47 @@ anchorLinks.forEach((link) => {
   });
 });
 
+const SERVER_API = "https://api.mcstatus.io/v2/status/java/moneygas.ultramc.co";
+const statusEl = document.getElementById("server-status");
+const statusText = document.getElementById("status-text");
+const statusDot = statusEl ? statusEl.querySelector(".status-dot") : null;
+const playerCountEl = document.getElementById("player-count");
+const serverVersionEl = document.getElementById("server-version");
+
+async function fetchServerStatus() {
+  try {
+    const res = await fetch(SERVER_API);
+    if (!res.ok) throw new Error("API error");
+    const data = await res.json();
+
+    if (statusText) {
+      if (data.online) {
+        statusText.textContent = `${data.players.online}/${data.players.max} Online`;
+        if (statusDot) statusDot.classList.remove("status-dot--offline");
+        if (statusEl) statusEl.classList.remove("server-status--offline");
+      } else {
+        statusText.textContent = "Offline";
+        if (statusDot) statusDot.classList.add("status-dot--offline");
+        if (statusEl) statusEl.classList.add("server-status--offline");
+      }
+    }
+
+    if (playerCountEl) {
+      playerCountEl.textContent = data.online ? `${data.players.online} / ${data.players.max}` : "Offline";
+    }
+
+    if (serverVersionEl && data.version && data.version.name_clean) {
+      serverVersionEl.textContent = data.version.name_clean;
+    }
+  } catch {
+    if (statusText) statusText.textContent = "Status Unknown";
+    if (playerCountEl) playerCountEl.textContent = "—";
+  }
+}
+
+fetchServerStatus();
+setInterval(fetchServerStatus, 30000);
+
 let ticking = false;
 window.addEventListener(
   "scroll",

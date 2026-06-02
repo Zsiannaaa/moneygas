@@ -490,6 +490,15 @@ button {
   line-height: 1.5;
 }
 
+.status-dot--offline {
+  background: #ff4444;
+  box-shadow: 0 0 16px rgba(255, 68, 68, 0.8);
+}
+
+.server-status--offline {
+  border-color: rgba(255, 68, 68, 0.3);
+}
+
 .section {
   padding: 5rem 0;
 }

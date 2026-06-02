@@ -37,9 +37,9 @@
       </nav>
 
       <div class="topbar-actions">
-        <div class="status-pill">
+        <div class="status-pill" id="server-status">
           <span class="status-dot"></span>
-          <span>Online 24/7</span>
+          <span id="status-text">Checking...</span>
         </div>
         <a class="button button-small" href="#join">Play Now</a>
       </div>
@@ -84,7 +84,7 @@
                 </div>
                 <div>
                   <span class="card-label">Version</span>
-                  <strong>1.20+</strong>
+                  <strong id="server-version">1.20+</strong>
                 </div>
                 <div>
                   <span class="card-label">Mode</span>
@@ -94,8 +94,8 @@
 
               <div class="hero-stats">
                 <article>
-                  <span class="stat-value">24/7</span>
-                  <span class="stat-label">Server uptime with daily monitoring</span>
+                  <span class="stat-value" id="player-count">—</span>
+                  <span class="stat-label">Players online right now</span>
                 </article>
               </div>
             </div>
