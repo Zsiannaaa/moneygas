@@ -754,7 +754,7 @@ button {
   overflow: hidden;
   background: var(--panel);
   box-shadow: var(--shadow);
-  min-height: 320px;
+  min-height: 480px;
 }
 
 .features-image img {
@@ -1178,7 +1178,7 @@ button {
   }
 
   .features-image {
-    min-height: 240px;
+    min-height: 360px;
   }
 
   .feature-grid article:last-child,
