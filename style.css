@@ -694,6 +694,131 @@ button {
   padding: 0 1.4rem 1.4rem;
 }
 
+.section-community .section-heading {
+  margin-bottom: 2rem;
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.community-panel {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.community-panel h3 {
+  margin: 0;
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.03em;
+  line-height: 0.96;
+}
+
+.community-panel p {
+  color: var(--muted);
+  margin: 0.5rem 0 1.5rem;
+  line-height: 1.6;
+}
+
+.skin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 1rem;
+}
+
+.skin-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1.2rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.03);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.skin-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 12px 32px rgba(168, 85, 247, 0.15);
+}
+
+.skin-card img {
+  width: 54px;
+  height: auto;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+}
+
+.skin-card-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #e2d7f2;
+  text-align: center;
+  word-break: break-word;
+}
+
+.skin-card-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  color: #64ff78;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skin-card-status::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #64ff78;
+  box-shadow: 0 0 8px rgba(100, 255, 120, 0.8);
+}
+
+.skin-loading {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.skin-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+@media (max-width: 1100px) {
+  .community-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .community-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skin-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  }
+}
+
 .footer {
   display: flex;
   align-items: center;
