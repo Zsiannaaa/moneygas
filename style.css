@@ -583,7 +583,7 @@ button {
   background:
     linear-gradient(180deg, rgba(14, 6, 22, 0.72), rgba(8, 4, 14, 0.78)),
     linear-gradient(120deg, rgba(91, 33, 182, 0.24), rgba(14, 5, 22, 0.32)),
-    url("img/img2.png");
+    url("img/img2_purple.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
