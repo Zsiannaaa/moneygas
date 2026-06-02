@@ -131,101 +131,11 @@ async function fetchServerStatus() {
     if (serverVersionEl && data.version && data.version.name_clean) {
       serverVersionEl.textContent = data.version.name_clean;
     }
-
-    if (data.players && data.players.list) {
-      renderOnlinePlayers(data.players.list);
-    } else {
-      renderOnlinePlayers([]);
-    }
   } catch {
     if (statusText) statusText.textContent = "Status Unknown";
     if (playerCountEl) playerCountEl.textContent = "—";
-    renderOnlinePlayers([]);
   }
 }
-
-const FEATURED_PLAYERS = [
-  "Zsiannaaa",
-  "Notch",
-  "Dream",
-  "Technoblade",
-  "CaptainSparklez"
-];
-
-const onlineGrid = document.getElementById("online-players");
-const featuredGrid = document.getElementById("featured-players");
-
-function createSkinCard(name, uuid, isOnline) {
-  const card = document.createElement("div");
-  card.className = "skin-card";
-
-  const img = document.createElement("img");
-  img.src = `https://crafatar.com/renders/body/${uuid}?scale=3&overlay`;
-  img.alt = `${name} skin`;
-  img.loading = "lazy";
-  img.onerror = () => {
-    img.src = `https://crafatar.com/avatars/${uuid}?size=54&overlay`;
-  };
-
-  const nameEl = document.createElement("span");
-  nameEl.className = "skin-card-name";
-  nameEl.textContent = name;
-
-  card.appendChild(img);
-  card.appendChild(nameEl);
-
-  if (isOnline) {
-    const status = document.createElement("span");
-    status.className = "skin-card-status";
-    status.textContent = "Online";
-    card.appendChild(status);
-  }
-
-  return card;
-}
-
-function renderOnlinePlayers(players) {
-  if (!onlineGrid) return;
-  onlineGrid.innerHTML = "";
-
-  if (!players || players.length === 0) {
-    const empty = document.createElement("div");
-    empty.className = "skin-empty";
-    empty.textContent = "No survivors online right now.";
-    onlineGrid.appendChild(empty);
-    return;
-  }
-
-  players.forEach((player) => {
-    if (player.name && player.uuid) {
-      onlineGrid.appendChild(createSkinCard(player.name, player.uuid, true));
-    }
-  });
-}
-
-async function fetchFeaturedPlayers() {
-  if (!featuredGrid) return;
-
-  for (const username of FEATURED_PLAYERS) {
-    try {
-      const res = await fetch(`https://api.ashcon.app/mojang/v2/user/${username}`);
-      if (!res.ok) continue;
-      const data = await res.json();
-      featuredGrid.appendChild(createSkinCard(data.username, data.uuid, false));
-    } catch {
-      const fallback = document.createElement("div");
-      fallback.className = "skin-card";
-      fallback.innerHTML = `<img src="https://crafatar.com/avatars/00000000000000000000000000000000?size=54&overlay" alt="${username}"><span class="skin-card-name">${username}</span>`;
-      featuredGrid.appendChild(fallback);
-    }
-  }
-
-  if (featuredGrid.querySelector(".skin-loading")) {
-    featuredGrid.querySelector(".skin-loading").remove();
-  }
-}
-
-fetchFeaturedPlayers();
 
 fetchServerStatus();
 setInterval(fetchServerStatus, 30000);
