@@ -1,15 +1,15 @@
 :root {
-  --bg: #070404;
-  --bg-soft: #120707;
-  --panel: rgba(21, 9, 9, 0.82);
-  --panel-strong: rgba(31, 10, 10, 0.95);
+  --bg: #060409;
+  --bg-soft: #0d0816;
+  --panel: rgba(14, 9, 24, 0.82);
+  --panel-strong: rgba(22, 10, 36, 0.95);
   --line: rgba(255, 255, 255, 0.09);
-  --text: #f8eeee;
-  --muted: #d3bcbc;
-  --red-1: #ff2b2b;
-  --red-2: #b10f0f;
-  --red-3: #670909;
-  --glow: rgba(255, 59, 59, 0.38);
+  --text: #f0edf8;
+  --muted: #c4bcd6;
+  --purple-1: #a855f7;
+  --purple-2: #7c3aed;
+  --purple-3: #4c1d95;
+  --glow: rgba(168, 85, 247, 0.38);
   --shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
   --radius-lg: 18px;
   --radius-md: 8px;
@@ -37,8 +37,8 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(circle at top, rgba(159, 15, 15, 0.22), transparent 30%),
-    linear-gradient(180deg, #120707 0%, #070404 35%, #050303 100%);
+    radial-gradient(circle at top, rgba(124, 58, 237, 0.22), transparent 30%),
+    linear-gradient(180deg, #0d0816 0%, #060409 35%, #040307 100%);
   color: var(--text);
   font-family: "Outfit", "Segoe UI", sans-serif;
 }
@@ -89,7 +89,7 @@ button {
   padding: 0.4rem 0.75rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-lg);
-  background: rgba(15, 7, 7, 0.88);
+  background: rgba(10, 7, 18, 0.88);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42);
   backdrop-filter: blur(18px);
   transform: translateX(-50%);
@@ -126,7 +126,7 @@ button {
   bottom: -0.35rem;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, var(--red-1), #ffd2d2);
+  background: linear-gradient(90deg, var(--purple-1), #e9d5ff);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 220ms ease;
@@ -168,7 +168,7 @@ button {
   gap: 0.55rem;
   padding: 0.48rem 0.75rem;
   border-radius: 999px;
-  color: #fff2f2;
+  color: #f0ecff;
   font-size: 0.8rem;
   white-space: nowrap;
 }
@@ -189,20 +189,20 @@ button {
   padding: 0.9rem 1.45rem;
   border: 0;
   border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, #ff3c3c, #8f0909);
+  background: linear-gradient(135deg, #a855f7, #5b21b6);
   color: #fff;
   font-family: "Outfit", "Segoe UI", sans-serif;
   font-weight: 700;
   letter-spacing: 0.03em;
   cursor: pointer;
-  box-shadow: 0 18px 35px rgba(177, 15, 15, 0.35);
+  box-shadow: 0 18px 35px rgba(124, 58, 237, 0.35);
   transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
 }
 
 .button:hover,
 .button:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 24px 44px rgba(177, 15, 15, 0.42);
+  box-shadow: 0 24px 44px rgba(124, 58, 237, 0.42);
   filter: brightness(1.06);
 }
 
@@ -259,14 +259,14 @@ button {
 
 .hero-overlay {
   background:
-    linear-gradient(90deg, rgba(7, 4, 4, 0.94) 0%, rgba(10, 4, 4, 0.66) 44%, rgba(10, 4, 4, 0.86) 100%),
-    linear-gradient(180deg, rgba(91, 0, 0, 0.44) 0%, rgba(24, 5, 5, 0.7) 100%);
+    linear-gradient(90deg, rgba(6, 4, 9, 0.94) 0%, rgba(8, 4, 14, 0.66) 44%, rgba(8, 4, 14, 0.86) 100%),
+    linear-gradient(180deg, rgba(76, 29, 149, 0.44) 0%, rgba(14, 5, 24, 0.7) 100%);
 }
 
 .hero-noise {
   background:
-    radial-gradient(circle at 20% 20%, rgba(255, 71, 71, 0.12), transparent 20%),
-    radial-gradient(circle at 80% 35%, rgba(255, 115, 115, 0.08), transparent 18%),
+    radial-gradient(circle at 20% 20%, rgba(168, 85, 247, 0.12), transparent 20%),
+    radial-gradient(circle at 80% 35%, rgba(192, 132, 252, 0.08), transparent 18%),
     radial-gradient(circle at 50% 90%, rgba(255, 255, 255, 0.04), transparent 22%);
   mix-blend-mode: screen;
   will-change: transform;
@@ -309,7 +309,7 @@ button {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #ffdede;
+  color: #e9d5ff;
 }
 
 .hero h1,
@@ -383,7 +383,7 @@ button {
   font-size: 0.78rem;
   font-family: "Outfit", "Segoe UI", sans-serif;
   font-weight: 700;
-  color: #ffb8b8;
+  color: #d8b4fe;
 }
 
 .hero-server-card strong,
@@ -417,7 +417,7 @@ button {
   aspect-ratio: 1;
   border-radius: 50%;
   background:
-    radial-gradient(circle, rgba(255, 72, 72, 0.28) 0%, rgba(255, 72, 72, 0.08) 45%, transparent 70%);
+    radial-gradient(circle, rgba(168, 85, 247, 0.28) 0%, rgba(168, 85, 247, 0.08) 45%, transparent 70%);
   filter: blur(12px);
   animation: pulse 6s ease-in-out infinite;
 }
@@ -436,9 +436,9 @@ button {
   gap: 0.55rem;
   margin-top: 0.85rem;
   padding: 0.7rem 1.2rem;
-  border: 1px solid rgba(255, 43, 43, 0.45);
+  border: 1px solid rgba(168, 85, 247, 0.45);
   border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, rgba(255, 43, 43, 0.2), rgba(177, 15, 15, 0.3));
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(124, 58, 237, 0.3));
   backdrop-filter: blur(12px);
   font-family: "Outfit", "Segoe UI", sans-serif;
   font-weight: 700;
@@ -446,7 +446,7 @@ button {
   color: #fff;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  box-shadow: 0 0 28px rgba(255, 43, 43, 0.35), 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 28px rgba(168, 85, 247, 0.35), 0 8px 24px rgba(0, 0, 0, 0.4);
   animation: mods-alert-pulse 2s ease-in-out infinite;
   cursor: pointer;
   transition: transform 180ms ease, box-shadow 180ms ease;
@@ -454,7 +454,7 @@ button {
 
 .mods-alert-badge:hover {
   transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 0 40px rgba(255, 43, 43, 0.5), 0 12px 32px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.5), 0 12px 32px rgba(0, 0, 0, 0.5);
 }
 
 .mods-alert-icon {
@@ -464,12 +464,12 @@ button {
 
 @keyframes mods-alert-pulse {
   0%, 100% {
-    box-shadow: 0 0 28px rgba(255, 43, 43, 0.35), 0 8px 24px rgba(0, 0, 0, 0.4);
-    border-color: rgba(255, 43, 43, 0.45);
+    box-shadow: 0 0 28px rgba(168, 85, 247, 0.35), 0 8px 24px rgba(0, 0, 0, 0.4);
+    border-color: rgba(168, 85, 247, 0.45);
   }
   50% {
-    box-shadow: 0 0 44px rgba(255, 43, 43, 0.55), 0 12px 30px rgba(0, 0, 0, 0.5);
-    border-color: rgba(255, 90, 90, 0.7);
+    box-shadow: 0 0 44px rgba(168, 85, 247, 0.55), 0 12px 30px rgba(0, 0, 0, 0.5);
+    border-color: rgba(192, 132, 252, 0.7);
   }
 }
 
@@ -571,8 +571,8 @@ button {
   padding: 2rem;
   border-radius: var(--radius-lg);
   background:
-    linear-gradient(180deg, rgba(20, 6, 6, 0.72), rgba(12, 4, 4, 0.78)),
-    linear-gradient(120deg, rgba(128, 10, 10, 0.24), rgba(20, 5, 5, 0.32)),
+    linear-gradient(180deg, rgba(14, 6, 22, 0.72), rgba(8, 4, 14, 0.78)),
+    linear-gradient(120deg, rgba(91, 33, 182, 0.24), rgba(14, 5, 22, 0.32)),
     url("img/img2.png");
   background-size: cover;
   background-position: center center;
@@ -606,7 +606,7 @@ button {
   position: relative;
   padding-left: 1.4rem;
   margin-top: 0.8rem;
-  color: #f2d7d7;
+  color: #e2d7f2;
 }
 
 .check-list li::before {
@@ -617,7 +617,7 @@ button {
   width: 0.45rem;
   height: 0.45rem;
   border-radius: 50%;
-  background: var(--red-1);
+  background: var(--purple-1);
   box-shadow: 0 0 15px var(--glow);
 }
 
@@ -649,8 +649,8 @@ button {
   margin-top: 1.25rem;
   padding: 1.4rem 1.5rem;
   background:
-    linear-gradient(135deg, rgba(255, 49, 49, 0.16), rgba(100, 8, 8, 0.68)),
-    rgba(21, 9, 9, 0.86);
+    linear-gradient(135deg, rgba(168, 85, 247, 0.16), rgba(76, 29, 149, 0.68)),
+    rgba(14, 9, 24, 0.86);
 }
 
 .cta-banner h3 {
@@ -699,7 +699,7 @@ button {
 .footer p,
 .footer span {
   margin: 0;
-  color: #c6a9a9;
+  color: #b8a9c6;
 }
 
 .reveal {
